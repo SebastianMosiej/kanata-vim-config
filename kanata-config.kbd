@@ -1,0 +1,4 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
