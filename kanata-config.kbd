@@ -1,4 +1,6 @@
 (defcfg
   process-unmapped-keys yes
+  tray-icon "insert.ico" ;; should activate for layers without icons like '5no-icn'
+  icon-match-layer-name     yes   ;;|yes| match layer name to icon files even without an explicit (icon name.ico) config
 )
 
