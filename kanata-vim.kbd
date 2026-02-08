@@ -22,6 +22,7 @@
   w    @n-w
   0    @n-0
   4    (t! action-shift 4 @n-$)
+  g    @n-g
   ;; insert
   i    (t! action-shift @n-i @n-I)
   a    (t! action-shift @n-i @n-A)
@@ -42,6 +43,9 @@
   n-w   C-rght
   n-0   (unshift home)
   n-$   (unshift end)
+  n-G   (unshift lctl end)
+  n-gg  (unshift lctl home)
+  n-g   (t! action-shift (tap-dance 200 (XX @n-gg)) @n-G)
 
   n-I   (t! action-i @n-0)
   n-A   (t! action-i @n-$)
