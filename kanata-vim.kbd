@@ -4,6 +4,9 @@
 (deftemplate action-shift (action shift-action)
   (fork $action $shift-action (rsft lsft))
 )
+(deftemplate action-ctl (action ctl-action)
+  (fork $action $ctl-action (lctl rctl))
+)
 
 (deflayermap (vim-normal)
   ;; reset all states
@@ -23,6 +26,11 @@
   0    @n-0
   4    (t! action-shift 4 @n-$)
   g    @n-g
+
+  r    (t! action-ctl XX @n-r) ;; aka $ on my lower layer
+  u    @n-u
+
+  x    (t! action-shift @n-x @n-X)
   ;; insert
   i    (t! action-shift @n-i @n-I)
   a    (t! action-shift @n-i @n-A)
@@ -48,6 +56,11 @@
   n-G   (unshift lctl end)
   n-gg  (unshift lctl home)
   n-g   (t! action-shift (tap-dance 200 (XX @n-gg)) @n-G)
+  n-u   (unmod lctl z)
+  n-r   (unmod lctl y)
+
+  n-x   del
+  n-X   bspc
 
   n-I   (t! action-i @n-0)
   n-A   (t! action-i @n-$)
