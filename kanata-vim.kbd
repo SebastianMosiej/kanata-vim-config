@@ -1,0 +1,26 @@
+(deflayermap (vim-normal)
+  ;; reset all states
+  caps esc 
+
+  ;; motions
+  up   @n-k
+  down @n-j
+  lft  @n-h
+  rght @n-l
+  h    @n-h
+  j    @n-j
+  k    @n-k
+  l    @n-l
+)
+
+(defalias
+  ;; Vim aliases start with i, n, v, or V to indicate the mode (layer) they are designed for (insert, normal, visual, visual-line).
+  i-n (t! tap-hold caps (layer-switch vim-normal))
+
+  n-i   (multi caps (layer-switch insert))
+
+  n-h   lft
+  n-j   down
+  n-k   up
+  n-l   rght
+)
