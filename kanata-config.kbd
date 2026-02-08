@@ -23,6 +23,11 @@
   )
 )
 
+(deftemplate tap-hold (tap-action hold-action)
+  ;;   tap-time hold-time
+  (tap-hold 300 150 $tap-action $hold-action)
+)
+
 (defalias
   ;; homerow mods
   a (t! homerow-l a lctl)
