@@ -1,3 +1,6 @@
+(deftemplate action-i (action)
+  (multi $action @n-i)
+)
 (deftemplate action-shift (action shift-action)
   (fork $action $shift-action (rsft lsft))
 )
@@ -19,6 +22,10 @@
   w    @n-w
   0    @n-0
   4    (t! action-shift 4 @n-$)
+  ;; insert
+  i    (t! action-shift @n-i @n-I)
+  a    (t! action-shift @n-i @n-A)
+  o    (t! action-shift @n-o @n-O)
 )
 
 (defalias
@@ -35,4 +42,9 @@
   n-w   C-rght
   n-0   (unshift home)
   n-$   (unshift end)
+
+  n-I   (t! action-i @n-0)
+  n-A   (t! action-i @n-$)
+  n-o   (t! action-i (macro @n-$ ret))
+  n-O   (t! action-i (macro @n-0 ret (unshift up)))
 )
