@@ -27,6 +27,8 @@
   i    (t! action-shift @n-i @n-I)
   a    (t! action-shift @n-i @n-A)
   o    (t! action-shift @n-o @n-O)
+
+  9    (tap-dance 200 (9 lrld))
 )
 
 (defalias
