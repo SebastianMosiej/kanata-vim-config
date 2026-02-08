@@ -1,3 +1,7 @@
+(deftemplate action-shift (action shift-action)
+  (fork $action $shift-action (rsft lsft))
+)
+
 (deflayermap (vim-normal)
   ;; reset all states
   caps esc 
@@ -13,6 +17,8 @@
   l    @n-l
   b    @n-b
   w    @n-w
+  0    @n-0
+  4    (t! action-shift 4 @n-$)
 )
 
 (defalias
@@ -27,4 +33,6 @@
   n-l   rght
   n-b   C-lft
   n-w   C-rght
+  n-0   (unshift home)
+  n-$   (unshift end)
 )
