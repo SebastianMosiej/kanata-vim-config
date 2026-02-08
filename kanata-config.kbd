@@ -4,3 +4,27 @@
   icon-match-layer-name     yes   ;;|yes| match layer name to icon files even without an explicit (icon name.ico) config
 )
 
+(deftemplate homerow-l (tap-action hold-action)
+  ;;                tap-time hold-time                    tap-keys
+  (tap-hold-release-keys 200 150 $tap-action $hold-action (
+      q w e r t
+      ;; a s d f g
+      z x c v b
+    )
+  )
+)
+(deftemplate homerow-r (tap-action hold-action)
+  ;;                tap-time hold-time                    tap-keys
+  (tap-hold-release-keys 200 150 $tap-action $hold-action (
+      y u i o p
+      ;; h j k l ;
+      n m , . /
+    )
+  )
+)
+
+(defalias
+  ;; homerow mods
+  a (t! homerow-l a lctl)
+  ; (t! homerow-r ; rctl)
+)
