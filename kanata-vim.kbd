@@ -27,7 +27,7 @@
   4    (t! action-shift 4 @n-$)
   g    @n-g
 
-  r    (t! action-ctl XX @n-r) ;; aka $ on my lower layer
+  r    @n-r
   u    @n-u
 
   x    (t! action-shift @n-x @n-X)
@@ -57,7 +57,7 @@
   n-gg  (unshift lctl home)
   n-g   (t! action-shift (tap-dance 200 (XX @n-gg)) @n-G)
   n-u   (unmod lctl z)
-  n-r   (unmod lctl y)
+  n-r   (t! action-ctl (layer-switch vim-replace) (unmod lctl y)) ;; aka $ on my lower layer
 
   n-x   del
   n-X   bspc
