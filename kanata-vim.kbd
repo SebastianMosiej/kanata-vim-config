@@ -29,6 +29,7 @@
 
   r    @n-r
   u    @n-u
+  d    @n-d
 
   x    (t! action-shift @n-x @n-X)
   ;; insert
@@ -37,6 +38,14 @@
   o    (t! action-shift @n-o @n-O)
 
   9    (tap-dance 200 (9 lrld))
+)
+
+(deflayermap vim-d-layer
+  d (macro @n-0 S-end del)
+  w C-del
+  b C-bspc
+  e (macro C-S-right bspc)
+  __ XX
 )
 
 (defalias
@@ -58,6 +67,9 @@
   n-g   (t! action-shift (tap-dance 200 (XX @n-gg)) @n-G)
   n-u   (unmod lctl z)
   n-r   (t! action-ctl (layer-switch vim-replace) (unmod lctl y)) ;; aka $ on my lower layer
+
+  n-D   (macro S-end del)
+  n-d   (t! action-shift (one-shot 1000 (layer-toggle vim-d-layer)) @n-D)
 
   n-x   del
   n-X   bspc
